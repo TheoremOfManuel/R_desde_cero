@@ -3,17 +3,17 @@
 
 "Ya se sabe que es recomendable usar <- como operador de asignacion de variables
 pero si se tiene que asignar una variable dentro de una funcion es mas recomendable
-usar el operador =
+usar el operador = y sin dejar espacios. 
 
 --------------------------------------------------------------------------------
 Desde que varios vectores o matrices tengan las mismas cantidad de dimensiones
-entre si se pueden hacer las operaciones matematicas ya conocidas simplemente
+entre si se pueden hacer las operaciones matemáticas ya conocidas simplemente
 sumando el nombre de sus variables donde ya estan contenidos, con +, -, *, /
 
 --------------------------------------------------------------------------------
 Para pruebas logicas se tienen los operadores de siempre <,<=,>,>=,==, != y pues
 simplemente retorna un booleano, esto se puede usar facilmente para seleccionar 
-elementos de un objeto, como matriz, vector o incluso un data frame
+elementos de un objeto, como matriz, vector o incluso un data frame.
 
 dataframe[dataframe$variable>#,] me retorna todos los registros con todas
 las columnas, pero donde la columna variable sea mayor que # pues para seleccionar
@@ -29,8 +29,8 @@ x|y, x||y, xor(x,y), disjuncion entre x e y
 
 Es muy importante mencionar que si se le hace una prueba logica a un vector
 es porque se le hace una prueba logica a cada entrada pero cuando se usa && o ||
-es una conjuncion y disjuncion vectorial respectivamente, que hace que se le aplique
-la conjuncion o disjuncion al vector de resultados al usar & o | respectivamente
+es una conjunción y disjunción vectorial respectivamente, que hace que se le aplique
+la conjunción o disjunción al vector de resultados al usar & o | respectivamente
 "
 edad <- c(15,19,13,NA,20)
 deporte <- c(TRUE,TRUE,NA,FALSE,TRUE)
@@ -39,29 +39,29 @@ mimarco <- data.frame(edad,deporte,comic.fav)
 mimarco[mimarco$edad >= 15 & mimarco$deporte == TRUE, ]#Me retorna todos los registros donde la edad es 15 y deporte es TRUE
 # y pues notese que me muestra toda la información de todas las columnas.
 
-#LA FUNCIÓN WITH es una función util pues simplifica el acceso a las variables dentro de un data
+#LA FUNCIÓN WITH es una función útil pues simplifica el acceso a las variables dentro de un data
 #frame u otro entorno evitando tener que escribir el nombre del dataframe repetidamente, es decir,
 #permite trabajar directamente con las columnas del dataframe como si fueran variables individuales 
 # por lo que permite escribir menos y de una forma mas natural. with(data,expre) donde data
-#es el data frame y expre es la expresion que se desea evaluar. La misma instruccion anterior
+#es el data frame y expre es la expresion que se desea evaluar. La misma instrucción anterior
 #pero de una forma mas natural con la función with es
 with(mimarco,mimarco[edad >= 15 & deporte == TRUE, ])
 
 #-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
 #FUNCIONES SOBRE VECTORES 
-"En R se pueden destacar las siguientes funciones basicas sobre vectores NUMERICOS: 
+"En R se pueden destacar las siguientes funciones basicas sobre vectores NUMÉRICOS: 
 
-min(vec): valor minimo del vector
-max(vec): valor máximo del vector
-length(vec): tamaño del vector
-range(vec): obtiene el rango de los valores del vector, es decir, el mínimo y el maximo
-sum(vec): sumatoria de los elementos
-prod(vec): prodcutoria de los elementos
-which.min(vec): posicion del valor mínimo
-which.max(vec): posicion del valor máximo
-which(expr):retorna los indices de los elementos que satisfacen la expresion, pero notese que es 
-una expresion logica
-rev: invierte el vector
+min(vec): Valor mínimo del vector
+max(vec): Valor máximo del vector
+length(vec): Tamaño del vector
+range(vec): Obtiene el rango de los valores del vector, es decir, el mínimo y el máximo.
+sum(vec): Sumatoria de los elementos.
+prod(vec): Productoria de los elementos.
+which.min(vec): Posición del valor mínimo.
+which.max(vec): posición del valor máximo.
+which(expr):Retorna los indices de los elementos que satisfacen la expresión, pero notese que es 
+una expresion lógica.
+rev: Invierte el vector.
 
 
 mean(vec): retorna la media
@@ -121,8 +121,8 @@ abs(-3.6)
 
 # |-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
 #FUNCION SEQ  
-"Sirve para crear frecuencias de numeros de una manera sencilla usando la funcion
-seq de tal manera que 
+"Sirve para crear secuencias de números de una manera sencilla usando la función
+seq de tal que 
 
 seq(from=1,to=1,by,lenth.out)
 
@@ -132,7 +132,7 @@ by: paso
 length.out: longitud deseada de la secuencia"
 seq(0,1,length.out=11) #seq(from=0, to=1, lenght.out=11)
 
-"y tengase en cuenta que en R existe el operador binario : para construir
+"Y tengase en cuenta que en R existe el operador binario : para construir
 secuencias de uno en uno facilmente 
 
 2:8   2,3,4,5,6,7,8
@@ -152,7 +152,7 @@ times: veces que x se repite
 length.out: longitud deseada para el vector resultante
 each: número de veces que se debe repetir cada elemento de x
 
-esta es una funcion muy versatil que permite hacer mucho.
+esta es una funcion muy versatil que permite hacer muchas cosas diferentes.
 
 times=1 por defecto, pero si se tiene que x es un vector
 se puede seleccionar cuanto se repite cada elemento con times=c(1,2,1,1,...)
@@ -182,7 +182,7 @@ rep(x=1:3, each=2, times=3) #dice que de un vector de los primero 3 numeros, cad
 
 # |-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
 #FUNCIONES ROUND, CEILING, FLOOR Y TRUNC
-"Funciones utiles para modificar u obtener información de un número
+"Funciones útiles para modificar u obtener información de un número
 
 round(x,digits): redondea al número según los digitos indicados
 
@@ -251,15 +251,15 @@ matriz existente o modificar los valores en la diagonal de una matriz.
   diag(3,2,4): lo mismo que la anterior pero con 2 filas 
   y 4 columnas
   
-  si no se pone nada en la informacion para llenar se pone 1 
+  Si no se pone nada en la informacion para llenar se pone 1 
   en la diagonal principal
   
-  diag(mimatriz) extrae la diagonal principal de una matriz
+  diag(matriz) extrae la diagonal principal de una matriz
   
-  diag(mimatriz) <- c(10,20,30) modifica la diagonal principal
+  diag(matriz) <- c(10,20,30) modifica la diagonal principal
   por el los valores del vector dado
 -----------------------------------------------------------------------------
-cbind(): se usa para combinar o unir vectores, matrices o dataframes por columnas,
+cbind(): Se usa para combinar o unir vectores, matrices o dataframes por columnas,
 es decir, coloca cada objeto porporcionado como una columna en una nueva estructura
 gerenalmente como una matriz o data frame.
 
@@ -276,7 +276,7 @@ esto y usar la funcion matrix() es la forma de guardar datos pues con matrix
 hay que llenar el parametro data con un vector y dar las dimensiones,
 pues con cbind o rbind, se crea directamente la matriz con los vectores dados.
 
-t(matriz): me retorna la traspuesta de una matriz, cambia filas en columnas
+t(matriz): Retorna la traspuesta de una matriz, cambia filas en columnas
 y columnas en filas 
 -----------------------------------------------------------------------------
 apply(): Esta funcion sirve para aplicar una funcion a las filas 
@@ -290,26 +290,26 @@ estructuras de datos haciendo el codigo mas eficiente y legible
   fun: la funcion que se desea aplicar(sum, mean, min, etc)
   ... argumentos adicionales 
 -----------------------------------------------------------------------------
-sample(): sirve para seleccionar aleatoriamente elementos de un vector o generar
-una muestra aleatoria de números, muy util para simulaciones, muestreo
+sample(): Sirve para seleccionar aleatoriamente elementos de un vector o generar
+una muestra aleatoria de números, muy útil para simulaciones, muestreo
 o cuando se necesita crear datos de prueba.
 
   sample(x, size, replace = FALSE, prob = NULL)
   x: Vector o rango de valores a muestrear
   size: numero de elementos a seleccionar de X
-  replace: indica se se permite la selección con reemplazo, si 
+  replace: indica si se permite la selección con reemplazo, si 
   es TRUE indica que un elemento puede ser seleccionado varias veces
   prob: un vector de probabilidades para cada elemento de X
 
 -----------------------------------------------------------------------------
-nchar(variable): retorna el numero de caracteres dentro de una cadena
+nchar(variable): Retorna el número de caracteres dentro de una cadena.
 
 
 -----------------------------------------------------------------------------
 VARIABLES INCORPORADAS EN R
 
--letters: es un vector predefinido que contiene
-las letras del alfabeto ingles, de la a - z, es una variable incorporada.
+-letters: Es un vector predefinido que contiene
+las letras del alfabeto ingles, de la a hasta la z, es una variable incorporada.
 -LETTERS contiene las letras pero en mayúscula.
 -month.abb: abreviatura de los nombre de los meses
 -mont.name: nombres completos de los meses
@@ -317,7 +317,7 @@ las letras del alfabeto ingles, de la a - z, es una variable incorporada.
 
 -----------------------------------------------------------------------------
 PARA VERIFICAR EL TIEMPO DE PROCESAMIENTO 
-Con el paquete "microbenchmark" podemos verificar los tiempos de procesamiento
+Con el paquete <microbenchmark> podemos verificar los tiempos de procesamiento
 para varias pruebas tal que
 
 library(microbenchmark) #se llama el paquete
@@ -326,7 +326,7 @@ res <- microbenchmark(vect_origen=raices2(1,4,0),
                       times = 50L)
 res #y asi se hacen 50 pruebas para comparar las dos funciones
 
-plot(res, col=c("tomato", "deepskyblue1")) #asi saco un boxplot de los resultados
+plot(res, col=c(<tomato>, <deepskyblue1>)) #asi saco un boxplot de los resultados
 y se puede notar que en verdad no hay mucha diferencia. ES IMPORTANTE COMPARAR
 SIEMPRE LAS FUNCIONES VECTORIZADAS DE ORIGEN Y CON VECTORIZE PARA ELEGIR LA OPCIÓN
 MAS OPTIMA. 
