@@ -279,6 +279,23 @@ pues con cbind o rbind, se crea directamente la matriz con los vectores dados.
 t(matriz): Retorna la traspuesta de una matriz, cambia filas en columnas
 y columnas en filas 
 -----------------------------------------------------------------------------
+abind(): Es una función para poder combinar matrices o vectores en un array 
+multidimensional, es una función del paquete abind del paquete abind. Esta
+función permite combinar matrices a lo largo de una nueva dimensión, expandiendo
+estos objtos un array multidimensional.
+
+library(abind)
+array <- abind(matriz1, matriz2, along=3)
+donde matriz1 y matriz 2 son las matrices que se pondran
+en este array.
+
+array2 z- abind(vec1, vec2, along=2) 
+Hace un array bidimensional con los vectores. 
+
+
+along: indica que estamos combinando las matrices en una tercera
+dimensión, creando un array TRIDIMENSIONAL, donde cada capa.
+-----------------------------------------------------------------------------
 apply(): Esta funcion sirve para aplicar una funcion a las filas 
 o las columnas de una matriz o un data frame. ES MUY UTIL PARA EVITAR
 BUCLES cuando se realizan operaciones repetitivas sobre filas o columnas de 

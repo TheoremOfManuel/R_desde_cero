@@ -3,7 +3,7 @@
 e ingresar datos por la consola que luego se puede usar
 para alguna operación." 
 
-my_name <- readline(prompt="Ingrese su nombre: ") #donde la funcion prompt es para mostrar el mensjae
+my_name <- readline(prompt="Ingrese su nombre: ") #donde la funcion prompt es para mostrar el mensaje
 my_age  <- readline(prompt="Ingrese su edad en años: ")
 my_age  <- as.integer(my_age) #aca se esta castando el dato
 
@@ -21,6 +21,14 @@ find.package("svDialogs", quiet = TRUE) #para saber si esta
 install.packages("svDialogs") # Para instalar el paquete
 library(svDialogs)            # Para usar el paquete
 
+#FUNCIÓN dlgInput()
+"Muestra el cuadro de diálogo donde el usuario puede 
+escrir un valor o texto
+  dlgInput(message="texto", default="",...)
+  message: mensaje que se muestra en el cuadro
+  default: VAlor predeterminado que aparece en el
+  cuadro de texto
+  ... otros"
 my_name <- dlgInput(message="Ingrese su nombre: ")$res
 my_age  <- dlgInput(message="Ingrese su edad en años: ")$res
 my_age  <- as.integer(my_age) # convert character into integer
@@ -33,7 +41,12 @@ print(paste("Hola,", my_name,
 #USANDO BOTONES PARA RESPONDER
 #FUNCIÓN winDialog
 "La función winDialog del paquete __utils_ sirve para crear botones de diálogo
-en windows, tal que: 
+en windows, tal que:
+
+  windialog(type=..., message="",...)
+  type: tipos de botones para que puedan salir(ok, okcancel, yesno,
+  yesnocancel)
+  menssage: mensaje que aparece en el cuadro de dialogo
 "
 library(utils)
 winDialog(type="ok", message="¿Usted quiere BORRAR el archivo?")
@@ -92,7 +105,8 @@ datos <- read.table(file="C:/Users/usuario/Escritorio/ejemplo_lectura_BD.csv",
                     header=TRUE, sep=",");datos 
 #nota: recuerde que \ no es compatible, debe usar /, en caso de que tenga 
 #problemas, basta con poner file.choose() en file para que se abra una ventana
-# y asi pueda seleccionar manualmente el archivo
+# y asi pueda seleccionar manualmente el archivo. 
+#Otra forma es con r("url") y asi R sabe que es una dirección.
 
 #ejemplo archivo .txt
 datos <- read.table(file=file.choose(), header=TRUE, sep="\t");datos
@@ -191,7 +205,7 @@ un resumen completo de datos
 
     addmargins(x, margin, FUN=sum, ...)
     x: tabla o matriz a agregar margenes
-    margin: indica margener a agregar totales
+    margin: indica margenes a agregar 
       1: para columnas
       2: para filas
       NULL: de manera global(por defecto)
@@ -205,20 +219,20 @@ addmargins(tabla3, margin=1)
 addmargins(tabla3, margin=2)
 
 #FUNCIÓN hist
-"Es una función para crear tablas de frecuencia para variables cuantitativas por
-eso esta función sirve para frecuencias de variables cuantitativas, tal que: 
+"Es una función para crear tablas de frecuencia para variables cuanttativas
+tal que: 
 
   hist(x, breaks='Sturges', include.lowest=TRUE, right=TRUE, plot=FLASE)
   x: vector númerico
   
-  breaks: Vector para los limites de los interalos. Si no se especifica se usa la 
+  breaks: Vector para los limites de los interavlos. Si no se especifica se usa la 
   regla de Sturges para definir el numero de intervalos y el ancho. 
   
   include.lowest: Booleano, TRUE para que un valor pueda coincidir con un limite
   del intervalo izquierdo, FALSE para que quede en el lado derecho (Recuerde que 
-  deben ser intervalos semiabiertos).
+  deben ser intervalos semi-abiertos).
   
-  right: Booleano, TRUE para intervalos abierto a derecha y FALS para abiertos 
+  right: Booleano, TRUE para intervalos abierto a derecha y FALSE para cerrados 
   a derecha.
   
   plot: Booleano, FALSE para solo la tabla de freciencia, TRUE para la representacion

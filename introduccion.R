@@ -36,7 +36,7 @@ string <- 'Cadena'
 bool <- TRUE 
 
 2.4. Factores: Los factores se utilizan para almacenar datos categóricos y pueden
-tener niveles definidos. útiles cuando se trabaj con datos categóricos, como grupos
+tener niveles definidos. útiles cuando se trabaja con datos categóricos, como grupos
 o categorías y permiten optimizar memoria
 colores <- factor(c('rojo','verde','azul','rojo'))
 
@@ -73,7 +73,7 @@ edades <- c(12,13,14,NA,15)
 #edades se muestran los datos en la interfaz de salida
 
 "Para extraer un elemento almacenado dentro de un vector se usan los corchetes [] y dentro de ellos 
-la posicion o posiciones que interesan
+la posicion o posiciones que interesan empezando en 1
 
 ej: si se quiere extraer la edad de la tercera persona se pone el nombre del vector y luego [3] para indicar la 
 el objeto de la tercera
@@ -97,7 +97,7 @@ matriz <- matrix(data=1:20,nrow = 4,ncol = 5,byrow = FALSE) se crea una matriz d
 columnas con los primeros 20 numeros positivos.
 
 nota: El argumento data de la funcion sirve para indicar los datos que se van a 
-almacenar en la matriz, nrow y ncol sirven para definir la dimension de la matriz 
+almacenar en la matriz , nrow y ncol sirven para definir la dimension de la matriz 
 y por ultimo el argumento byrow indica si la información contenida en data se debe ingresar
 por filas o no"
 
@@ -118,7 +118,12 @@ matriz[,c(2,4)]#imprimiar las colunmas 2 y 4
 
 "Por eso notese la importancia de la coma pues separa lo que se desea mostrar y tengase en cuenta
 que al usar un vector c() se impimiran es las filas o columnas depende de como se ponga respectivamente
-anotadas en este vector."
+anotadas en este vector. Algo importante para mencionar es que solo se puede de un tipo de variable
+como lo son los vectores. Además es imporante notar que esta función matrix solamene
+sirve para crear una matriz donde los datos que tendran será un vector dado de esa manera, 
+mas adelante se introducira la forma de crear una matriz uniendo varios vectores"
+
+m1 <- matrix(c(1,2,3,4),2,2); m1
 
 
 "3.3 Arreglos, Un arreglo es una matriz de VARIAS DIMENSIONES con información numérica, alfanumérica o 
@@ -144,6 +149,9 @@ miarray
 miarray[,,2]
 miarray[,3,]
 miarray[,c(1,3),]
+
+"De manera analoga a como vimos en las matrices, hay una función para combinar matrices y crear
+un array multidimensional, pero mas adelante se verá este. "
 
 "3.4 MARCO DE DATOS O DATA FRAME: El marco de datos o data frame es uno de los objetos mas usados
 porque permite AGRUPAR vectores con información de diferente tipo numérica, alfanumérica o lógica en un
@@ -193,6 +201,8 @@ mimarco[1:4,1]
 mimarco[c(1,3),1]
 mimarco[,c(1,3)] #como no estoy indicando nada mas, quiere decir que me muestre las columnas
 mimarco[c(1,3),]#que me muestre todos los datos de los registros 1 y 3
+
+
 
 #SUBCONJUNTOS *importante*
 "Para extraer subconjuntos de un marco de datos se puede usar la función subset(x,subset,select). donde
@@ -297,3 +307,33 @@ para llenar los parametros de alguna funcion.
 pues aunque funciona es dificil de leer, pues en varias ocasiones si ahorra bastantes
 lineas de codigo
 """
+#-----------------------------------------------------------------------------------
+#INFORMACIÓN DE LA SESIÓN 
+sessionInfo() #enseña la version y paquetes activos
+# ============================
+# Objetos en mi sesión:
+# ============================
+
+ls()  # Objetos activos - Forma 1
+objects()  # Objetos activos - Forma 2
+
+rm("x1") # Eliminando un objeto
+
+rm(list=ls()) # Eliminando todos los objetos  es recomendable usarla solo al principio
+
+# ========================================
+# En cuál carpeta está  activa mi sesión:
+# ========================================
+
+getwd()
+
+# ========================================
+# Fijando una carpeta para mi sesión:
+# ========================================
+
+setwd(r"(C:\Users\mtang\onedrive\Escritorio\Documentos_estudio\estadistica\PLE)") #para cambiar la dirección de sesión
+#Si se tiene una dirección con los / y no tener que cambiar todo podemos poner
+#la dirección entre paréntesis y luego entre comillas y se pone una r antes
+#de las comillas
+setwd(r"(C:\Users\mtang\onedrive\Escritorio\clase_2)") #y si se trabaja por ejemplo con rmarkdown
+#es muy útil pues hay que trabajar con direcciones
