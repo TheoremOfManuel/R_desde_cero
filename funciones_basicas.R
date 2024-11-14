@@ -31,6 +31,9 @@ Es muy importante mencionar que si se le hace una prueba logica a un vector
 es porque se le hace una prueba logica a cada entrada pero cuando se usa && o ||
 es una conjunción y disjunción vectorial respectivamente, que hace que se le aplique
 la conjunción o disjunción al vector de resultados al usar & o | respectivamente
+
+Al poner ! a una condición se convertira en un booleano. 
+
 "
 edad <- c(15,19,13,NA,20)
 deporte <- c(TRUE,TRUE,NA,FALSE,TRUE)
@@ -269,7 +272,7 @@ gerenalmente como una matriz o data frame.
   o data frame ya existente
   
 rbind(): funciona de manera similar a cbind() pero en lugar de unir por columnas
-une por filas
+une por filas, sirve incluso para unir nuevos registros para algun dataframe
 
 Son formas diferentes de crear una matriz, la principal diferencia entre usar
 esto y usar la funcion matrix() es la forma de guardar datos pues con matrix
@@ -296,16 +299,7 @@ Hace un array bidimensional con los vectores.
 along: indica que estamos combinando las matrices en una tercera
 dimensión, creando un array TRIDIMENSIONAL, donde cada capa.
 -----------------------------------------------------------------------------
-apply(): Esta funcion sirve para aplicar una funcion a las filas 
-o las columnas de una matriz o un data frame. ES MUY UTIL PARA EVITAR
-BUCLES cuando se realizan operaciones repetitivas sobre filas o columnas de 
-estructuras de datos haciendo el codigo mas eficiente y legible 
 
-  apply(X, MARGIN, FUN, ...)
-  x: matriz o data frame
-  margin: indica si la funcion se aplica a 1-> para fila y 2-> para columnas
-  fun: la funcion que se desea aplicar(sum, mean, min, etc)
-  ... argumentos adicionales 
 -----------------------------------------------------------------------------
 sample(): Sirve para seleccionar aleatoriamente elementos de un vector o generar
 una muestra aleatoria de números, muy útil para simulaciones, muestreo
@@ -318,6 +312,77 @@ o cuando se necesita crear datos de prueba.
   es TRUE indica que un elemento puede ser seleccionado varias veces
   prob: un vector de probabilidades para cada elemento de X
 
+-----------------------------------------------------------------------------
+split(), la función split en R divide un conjunto de datos en subgrupos según 
+los valores de una variable y de agrupamiento, creando una lista de subconjuntos. 
+esto es util cuando se quieren separar datos para el análsis por grupos
+específicos. 
+  split(x, f)
+  x: vector o data frame que se quiere dividir
+  f: factor o variable de agrupamiento que indica como dividir a x
+y me retorna uns lista con con los subgrupos
+" 
+# Crear un data frame
+datos <- data.frame(
+  Nombre = c("Ana", "Luis", "Carla", "Juan", "Laura"),
+  Edad = c(20, 21, 19, 22, 20),
+  Genero = c("F", "M", "F", "M", "F")
+)
+
+# Usar split para dividir por género
+resultado <- split(datos, datos$Genero) #me retorna 2 data frame cada uno por cada género
+print(resultado)
+#me retorna dos tablas separadas por género
+
+"
+-----------------------------------------------------------------------------
+apply(): Esta funcion sirve para aplicar una funcion a las filas 
+o las columnas de una matriz o un data frame. ES MUY UTIL PARA EVITAR
+BUCLES cuando se realizan operaciones repetitivas sobre filas o columnas de 
+estructuras de datos haciendo el codigo mas eficiente y legible 
+
+  apply(X, MARGIN, FUN, ...)
+  x: matriz o data frame
+  margin: indica si la funcion se aplica a 1-> para fila y 2-> para columnas
+  fun: la funcion que se desea aplicar(sum, mean, min, etc)
+  ... argumentos adicionales 
+  
+Este concepto se exprapola a los vectores con las funciones samply y tapply
+
+sapply y tapply: Son herramientas poderosas para aplicar funciones a datos dentro
+de vectores, listas o arrays. A diferencia de la función apply que sirve
+para que se ejecute una función para los valores de las filas o las columnas.
+
+sapply: Aplica una función a cada elemento 
+de un objeto iterable como un vector, lista o dataframe
+
+  sapply(x, fun, ...)
+  x: obejto iterable
+  fun: funcion a aplicar
+  ...: argumentos adicionales para fun
+
+tapply: Aplica una función a subconjuntos de datos
+agrupados por niveles de un factor. Es útil para cálculos
+agregados dentro de grupos en vectores. 
+
+  tapply(X, INDEX, FUN, ...)
+  x: Vector de entrada sobre el cual se aplica la función
+  index: Un factor o lista de factores que definen los grupos
+  FUN: La función que se aplica a cada grupo
+  ...: argumentos adicionales para fun
+  
+  valores <- c(10, 20, 30, 40, 50)
+  grupos <- factor(c("A", "A", "B", "B", "B"))
+  tapply(valores, grupos, mean)
+  mostrara el promedo de los valores de cada grupo
+
+lapply(): Aplica una función a cada elemento de una lista o vector 
+Y DEVUELVE UNA LISTA CON LOS RESULTADOS. 
+  
+    lapply(x, fun, ...)
+    x: una lista, vector o estructura similar
+    fun: función a aplicar a cada elemento de x
+    ...: Argumentos adicionales que se pasan a fun
 -----------------------------------------------------------------------------
 nchar(variable): Retorna el número de caracteres dentro de una cadena.
 
@@ -347,3 +412,4 @@ plot(res, col=c(<tomato>, <deepskyblue1>)) #asi saco un boxplot de los resultado
 y se puede notar que en verdad no hay mucha diferencia. ES IMPORTANTE COMPARAR
 SIEMPRE LAS FUNCIONES VECTORIZADAS DE ORIGEN Y CON VECTORIZE PARA ELEGIR LA OPCIÓN
 MAS OPTIMA. 
+"
